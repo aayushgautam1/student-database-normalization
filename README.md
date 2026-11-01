@@ -1,19 +1,25 @@
 # Student Database Normalization Project
 
-## Overview
-This project demonstrates database normalization by refactoring an unnormalized student management database in MySQL. Redundant text columns (`group`, `city`, `status`) were converted into normalized lookup tables linked via foreign key relationships to improve data integrity and eliminate data redundancy.
+## About the Project
+This project is about improving a student management database using MySQL. Initially, information such as student groups, cities, and statuses was stored directly in the student table, resulting in repeated data.
 
-## Normalization Steps
-1. **Classifier Tables Creation**: Created `groups`, `cities`, and `statuses` tables with auto-increment primary keys[cite: 5, 6].
-2. **Data Migration**: Extracted unique string values from the unnormalized `student` table into lookup tables[cite: 5, 6].
-3. **Foreign Key Mapping**: Populated foreign key columns (`groups_id`, `city_id`, `status_id`) in `student` using `INNER JOIN` updates[cite: 5, 6].
-4. **Redundancy Cleanup**: Dropped duplicate text columns and enforced foreign key constraints (`fk_student_group`, `fk_student_city`, `fk_student_status`)[cite: 4, 5, 6].
+I reorganized the database by moving this information into separate tables and connecting them using foreign keys. This makes the database more organized, reduces data duplication, and improves data consistency.
 
-## Repository Files
-- **`schema.sql`**: Full MySQL dump including normalized tables and data records[cite: 4].
-- **`normalization_script.sql`**: Step-by-step SQL script executed during the normalization process[cite: 6].
-- **`Normalization_Documentation.pdf`**: Step-by-step query screenshots and full ER diagram[cite: 5].
+## What I Did
+1. **Created Separate Tables:** Created `groups`, `cities`, and `statuses` tables to store unique values.
+2. **Migrated Existing Data:** Extracted unique group, city, and status values from the original student table.
+3. **Established Relationships:** Added foreign key columns (`groups_id`, `city_id`, `status_id`) and used `INNER JOIN` updates to connect existing student records.
+4. **Removed Duplicate Columns:** Removed the original text columns and added foreign key constraints to maintain relationships between tables.
 
-## Tech Stack
-- **Database**: MySQL / MariaDB[cite: 4]
-- **Management Tool**: phpMyAdmin[cite: 4, 5]
+## Project Files
+- **`schema.sql`** – Contains the final database structure and records.
+- **`normalization_script.sql`** – Contains the SQL queries used during the normalization process.
+- **`Normalization_Documentation.pdf`** – Includes screenshots of the SQL queries and the final ER diagram.
+
+## Technologies Used
+- **Database:** MySQL
+- **Database Management Tool:** phpMyAdmin
+- **Language:** SQL
+
+## What I Learned
+Working on this project helped me understand how database normalization works in practice. I also gained experience creating tables, working with primary and foreign keys, using SQL JOIN and UPDATE statements, and maintaining relationships between database tables.
